@@ -1,0 +1,309 @@
+@use "variables";
+@use "mixins";
+
+body {
+  // background-color: variables.$White;
+  font-family: variables.$body-font;
+  color: variables.$Very-Dark-Cyan;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.main-container {
+  width: 375px;
+  margin-bottom: 25px;
+  @include mixins.viewDesktop(1440px);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 24px auto 120px;
+  @include mixins.viewDesktop(1300px);
+
+  &__logo {
+    width: 96px;
+    height: 17px;
+    @include mixins.viewDesktop(242px, 39px);
+  }
+
+  &__button {
+    @include mixins.button(variables.$White,
+      variables.$Light-Pink,
+      variables.$Light-Pink,
+      81px,
+      24px,
+      false,
+      400);
+    @include mixins.viewDesktop(137px, 42px);
+    @include mixins.button-hover(variables.$Light-Pink);
+  }
+}
+
+.header {
+  &__title {
+    font-family: variables.$headings-font;
+    text-align: center;
+    font-size: 1.48em;
+    margin: 0 auto 35px;
+    width: 265px;
+    @include mixins.viewDesktop(1100px, unset, 2.98em);
+  }
+
+  &__description {
+    font-size: 0.8em;
+    text-align: center;
+    font-weight: 400;
+    margin: 0 auto 48px;
+    width: 290px;
+    @include mixins.viewDesktop(590px, 82px, 1.25em);
+  }
+
+  &__button {
+    @include mixins.button(variables.$Pink,
+      unset,
+      variables.$Very-Pale-Blue,
+      200px,
+      40px,
+      true,
+      600);
+    @include mixins.viewDesktop(400px, 80px, 1.25em);
+    @include mixins.button-hover(variables.$Light-Pink);
+    margin-bottom: 105px;
+  }
+
+  &__screen-mockups {
+    width: 300px;
+    display: block;
+    margin: 0 auto 123px;
+    @include mixins.viewDesktop(1026px, 734px);
+  }
+}
+
+.section-statistics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include mixins.sectionStatsDesktop;
+
+  &__communities {
+    @include mixins.stats(32px);
+    @include mixins.statsDesktop(47px);
+  }
+
+  &__messages {
+    @include mixins.stats(24px) {
+      width: 69px;
+      margin: auto;
+    }
+
+    @include mixins.statsDesktop(42px);
+  }
+
+  @include mixins.banners('', '../images/bg-section-top-mobile-1.svg');
+  @include mixins.bannersDesktop('', '../images/bg-section-top-desktop-1.svg');
+}
+
+.section-grow-together {
+  background-color: variables.$Very-Pale-Blue;
+  @include mixins.flexSections;
+  @include mixins.flexSectionDesktop(row-reverse);
+}
+
+.section-flowing-conversations {
+  @include mixins.flexSections;
+  @include mixins.flexSectionDesktop;
+  @include mixins.banners('../images/bg-section-bottom-mobile-1.svg', '../images/bg-section-top-mobile-2.svg');
+  @include mixins.bannersDesktop('../images/bg-section-bottom-desktop-1.svg', '../images/bg-section-top-desktop-2.svg');
+}
+
+.section-your-users {
+  background-color: variables.$Very-Pale-Blue;
+  @include mixins.flexSections;
+  @include mixins.flexSectionDesktop(row-reverse);
+}
+
+.section-your-community {
+
+  height: 400px;
+  padding-top: 210px;
+
+  @include mixins.banners('../images/bg-section-bottom-mobile-2.svg', '../images/bg-footer-top-mobile.svg');
+  @include mixins.bannersDesktop('../images/bg-section-bottom-desktop-2.svg', '../images/bg-footer-top-desktop.svg');
+
+  &__title {
+    margin-top: 0;
+    @extend .header__title;
+  }
+
+  &__button {
+    @extend .header__button;
+  }
+}
+
+@media (min-width:1440px) {
+  .section-your-community {
+    height: 600px;
+  }
+}
+
+.newsletter {
+  background-color: variables.$Very-Dark-Cyan;
+  color: variables.$Very-Pale-Blue;
+  padding: 70px 24px 40px;
+}
+
+@media (min-width: 1440px) {
+  .newsletter {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+  }
+}
+
+.newsletter-subscription {
+
+  margin-bottom: 103px;
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 1.2em;
+    margin-bottom: 28px;
+  }
+
+  &__description {
+    font-size: 0.95em;
+    margin-bottom: 38px;
+    line-height: 23px;
+  }
+
+  &__input {
+    width: 320px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin-bottom: 22px;
+  }
+
+  &__error {
+    color: variables.$Pink;
+    font-size: 0.75em;
+    margin-top: -16px;
+    // display: none;
+    margin-bottom: 22px;
+  }
+
+  &__submit-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__submit {
+    @include mixins.button(variables.$Pink,
+      unset,
+      variables.$Very-Pale-Blue,
+      160px,
+      50px,
+      false,
+      600);
+    border-radius: 5px;
+    letter-spacing: 1px;
+    @include mixins.viewDesktop(160px, 50px, 1.25em);
+    @include mixins.button-hover(variables.$Light-Pink);
+  }
+}
+
+@media (min-width: 1440px) {
+
+  .newsletter-subscription {
+
+    display: flex;
+    width: 530px;
+    height: 236px;
+
+    &__title {
+      font-size: 1.6em;
+    }
+
+    &__description {
+      font-size: 0.98em;
+      margin-bottom: 30px;
+    }
+
+    &__input {
+      width: 90%;
+    }
+
+    &__submit-container {
+      align-items: flex-end;
+    }
+
+    &__submit {
+      width: 160px;
+    }
+  }
+}
+
+.newsletter_contact {
+
+  &__logo-huddle {
+    width: 200px;
+    margin-bottom: 20px;
+  }
+
+  &__description {
+    font-size: 0.95em;
+    margin-bottom: 45px;
+    line-height: 23px;
+  }
+
+  &__phone-container {
+    margin-bottom: 22px;
+    @include mixins.anchor;
+  }
+
+  &__email-container {
+    margin-bottom: 50px;
+    @include mixins.anchor;
+  }
+
+  &__social-network {
+    width: 105px;
+    height: 23px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    // cursor: pointer;
+    @include mixins.icons;
+
+    &__icon:hover {
+      color: variables.$hover-icons-social-network;
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .newsletter_contact {
+    &__logo-huddle {
+      width: 240px;
+    }
+
+    &__description {
+      font-size: 0.98em;
+      width: 330px;
+    }
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: variables.$aside;
+}

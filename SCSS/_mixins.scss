@@ -1,0 +1,171 @@
+@use "variables";
+
+@mixin viewDesktop($width, $height: unset, $font-size: unset) {
+  @media (min-width: 1440px) {
+    width: $width;
+    height: $height;
+    font-size: $font-size;
+  }
+}
+
+@mixin button($bg-color,
+  $br-color,
+  $fn-color,
+  $width,
+  $height,
+  $alignment,
+  $fw-weight) {
+  background-color: $bg-color;
+  border: none;
+  border: 1px solid $br-color;
+  border-radius: 50px;
+  color: $fn-color;
+  display: block;
+  width: $width;
+  height: $height;
+  font-weight: $fw-weight;
+
+  @if $alignment ==true {
+    margin: 0 auto;
+  }
+}
+
+@mixin button-hover($bg-color) {
+  &:hover {
+    cursor: pointer;
+    background-color: $bg-color;
+    color: variables.$White;
+  }
+}
+
+@mixin stats($Width-Logo) {
+  margin-bottom: 100px;
+
+  &__logo {
+    width: $Width-Logo;
+  }
+
+  &__stats {
+    font-size: 4em;
+    margin: 0;
+  }
+
+  &__description {
+    font-size: 0.8em;
+    text-align: center;
+    @content;
+  }
+}
+
+@mixin statsDesktop($Width-Logo) {
+  @media (min-width: 1440px) {
+    &__logo {
+      width: $Width-Logo;
+    }
+
+    &__stats {
+      font-size: 6em;
+    }
+
+    &__description {
+      font-size: 1.5em;
+    }
+  }
+}
+
+@mixin sectionStatsDesktop() {
+  @media (min-width: 1440px) {
+    flex-direction: row;
+    justify-content: space-around;
+    height: 800px;
+  }
+}
+
+@mixin flexSections() {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 180px 0;
+
+  &__image-container__ilustration {
+    width: 263px;
+    margin-bottom: 82px;
+  }
+
+  &__description {
+    &__title {
+      font-family: variables.$headings-font;
+      font-size: 1.2em;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    &__content {
+      text-align: center;
+      font-size: 0.9em;
+      width: 330px;
+      line-height: 23px;
+    }
+  }
+}
+
+@mixin flexSectionDesktop($direction: row) {
+  @media (min-width: 1440px) {
+    flex-direction: row;
+    justify-content: space-around;
+    flex-direction: $direction;
+    height: 800px;
+
+    &__image-container__ilustration {
+      width: 527px;
+    }
+
+    &__description {
+      &__title {
+        font-size: 2.3em;
+        text-align: left;
+      }
+
+      &__content {
+        font-size: 0.96em;
+        text-align: left;
+        width: 495px;
+      }
+    }
+  }
+}
+
+@mixin banners($imageTop, $imageBottom) {
+  background: {
+    image: url($imageTop), url($imageBottom);
+    repeat: no-repeat, no-repeat;
+    position-y: top, bottom;
+  }
+
+  ;
+}
+
+@mixin bannersDesktop($imageTop, $imageBottom) {
+  @media (min-width: 1440px) {
+    background: {
+      image: url($imageTop), url($imageBottom);
+    }
+
+    ;
+  }
+}
+
+@mixin anchor {
+  &__anchor {
+    color: variables.$Very-Pale-Blue;
+    text-decoration: none;
+    margin-left: 20px;
+  }
+}
+
+@mixin icons {
+  &__icon {
+    text-decoration: none;
+    color: variables.$White;
+  }
+}
