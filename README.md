@@ -30,9 +30,9 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
--SASS
--JavaScript
--Regular expressions
+- SASS
+- JavaScript
+- Regular expressions
 
 ## Author
 
