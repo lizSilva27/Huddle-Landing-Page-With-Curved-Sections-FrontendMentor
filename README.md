@@ -36,5 +36,5 @@ Users should be able to:
 
 ## Author
 
-Github: https://github.com/lizSilva27
-Frontend Mentor: https://www.frontendmentor.io/profile/lizSilva27
+- Github: https://github.com/lizSilva27
+- Frontend Mentor: https://www.frontendmentor.io/profile/lizSilva27
